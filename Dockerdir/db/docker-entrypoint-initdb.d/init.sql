@@ -1,16 +1,16 @@
-create table Users
+
+CREATE TABLE users
 (
-    name text null,
-    id int not null,
-    constraint Users_pk
-        primary key (id)
+    userID INTEGER AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(25)
 );
 
-create table Moods
+CREATE TABLE moods
 (
-    Score int not null,
-    Timestamp int not null,
-    User_id int not null,
-    constraint Moods_Users__fk
-        foreign key (User_id) references Users (id)
+    moodID INTEGER AUTO_INCREMENT PRIMARY KEY,
+    score INTEGER,
+    moodTimestamp DATE,
+    user_ID INT,
+        FOREIGN KEY(user_ID)
+        REFERENCES users(userID)
 );
